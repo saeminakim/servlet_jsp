@@ -17,11 +17,11 @@ public class CharacterEncodingFilter implements Filter {
 			throws IOException, ServletException {
 
 //		System.out.println("before filter");
-//		chain.doFilter(request, response);  // Èå¸§À» ³Ñ°ÜÁÖ´Â °Í. chainÀ» ¾È ¾²¸é ¼­ºí¸´ ½ÇÇàÀÌ ¾ÈµÊ
+//		chain.doFilter(request, response);  // íë¦„ì„ ë„˜ê²¨ì£¼ëŠ” ê²ƒ. chainì„ ì•ˆ ì“°ë©´ ì„œë¸”ë¦¿ ì‹¤í–‰ì´ ì•ˆë¨
 //		System.out.println("after filter");
 		
 		request.setCharacterEncoding("UTF-8");
-		// ´ÙÀ½ ¼­ºí¸´À» ½ÇÇàÇÏ±â Àü ÀÎÄÚµù ¼³Á¤
+		// ë‹¤ìŒ ì„œë¸”ë¦¿ì„ ì‹¤í–‰í•˜ê¸° ì „ ì¸ì½”ë”© ì„¤ì •
 		
 		chain.doFilter(request, response);
 	}

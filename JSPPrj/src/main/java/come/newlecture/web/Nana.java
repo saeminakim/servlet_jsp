@@ -9,13 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/hi")  // annotationÀ» ÀÌ¿ëÇÑ URL ¸ÅÇÎ
+@WebServlet("/hi")  // annotationì„ ì´ìš©í•œ URL ë§¤í•‘
 public class Nana extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		resp.setCharacterEncoding("UTF-8"); // ÀÎÄÚÆÃ ¹æ¹ı ÁöÁ¤. ¿äÃ» º¸³¾ ¶§
-		resp.setContentType("text/html; charset=UTF-8"); // ¹ŞÀ» ¶§ ÀÌ·¸°Ô ¹ŞÀ¸¶ó°í ÁöÁ¤
+		resp.setCharacterEncoding("UTF-8"); // ì¸ì½”íŒ… ë°©ë²• ì§€ì •. ìš”ì²­ ë³´ë‚¼ ë•Œ
+		resp.setContentType("text/html; charset=UTF-8"); // ë°›ì„ ë•Œ ì´ë ‡ê²Œ ë°›ìœ¼ë¼ê³  ì§€ì •
 
 		PrintWriter out = resp.getWriter();
 
@@ -27,7 +27,7 @@ public class Nana extends HttpServlet {
 		}
 
 		for(int i = 0; i < cnt; i++) {			
-			out.println((i+1) + " : ¾È³ç Servlet!! <br />");
+			out.println((i+1) + " : ì•ˆë…• Servlet!! <br />");
 		}
 	}
 }
