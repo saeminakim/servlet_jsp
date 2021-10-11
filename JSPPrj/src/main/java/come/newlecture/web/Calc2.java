@@ -85,6 +85,10 @@ public class Calc2 extends HttpServlet {
 			Cookie opCookie = new Cookie("op", op);
 			
 			valueCookie.setPath("/calc2");
+			valueCookie.setMaxAge(24 * 60 * 60);  
+			// 초 단위로 설정. 24 * 60 * 60 이렇게 하면 24시간
+			// 브라우저가 닫혀도 설정한 시간만큼 쿠키가 살아있게 됨
+			
 			opCookie.setPath("/calc2");
 			
 			// response header에 심어져서 전달
