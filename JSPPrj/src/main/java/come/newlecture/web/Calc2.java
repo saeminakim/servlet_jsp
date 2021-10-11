@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/calc2")  
 public class Calc2 extends HttpServlet {
@@ -15,6 +16,9 @@ public class Calc2 extends HttpServlet {
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		ServletContext application = req.getServletContext();
 		// ServletContext를 받아서 application 변수에 저장		
+		
+		// session을 이용
+		HttpSession session = req.getSession();
 		
 		resp.setCharacterEncoding("UTF-8"); 
 		resp.setContentType("text/html; charset=UTF-8"); 
@@ -30,9 +34,11 @@ public class Calc2 extends HttpServlet {
 
 		// 계산
 		if(op.equals("=")) {
-			int x = (Integer)application.getAttribute("value");
+//			int x = (Integer)application.getAttribute("value");
+			int x = (Integer)session.getAttribute("value");
 			int y = v;
-			String operator = (String)application.getAttribute("op");
+//			String operator = (String)application.getAttribute("op");
+			String operator = (String)session.getAttribute("op");
 			
 			int result = 0; 
 
@@ -47,9 +53,12 @@ public class Calc2 extends HttpServlet {
 		// 값을 저장
 		else {
 
-			application.setAttribute("value", v);
-			application.setAttribute("op", op);
+//			application.setAttribute("value", v);
+//			application.setAttribute("op", op);
 			// Map에 필요한 값들을 저장
+			
+			session.setAttribute("value", v);
+			session.setAttribute("op", op);
 			
 		}
 
