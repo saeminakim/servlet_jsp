@@ -42,14 +42,22 @@ public class Calc3 extends HttpServlet {
 				e.printStackTrace();
 			}
 
-		} else {
+		} 
+		else if(operator != null && operator.equals("C")) {			
+			exp = "";
+		}
+		else {
 			exp += (value == null) ? "" : value;
 			exp += (operator == null) ? "" : operator;
 			exp += (dot == null) ? "" : dot;
 		}
 
 		Cookie expCookie = new Cookie("exp", exp);
-		resp.addCookie(expCookie);
+		if(operator != null && operator.equals("C")) {
+			// 쿠키 지우기
+			expCookie.setMaxAge(0);
+		}
+		resp.addCookie(expCookie); 
 		resp.sendRedirect("calcpage");
 
 
